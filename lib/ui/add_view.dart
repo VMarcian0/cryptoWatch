@@ -54,6 +54,9 @@ class _AddViewState extends State<AddView> {
               ],
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 10,
+          ),
           Container(
             width: MediaQuery.of(context).size.width / 1.4,
             height: 45,
@@ -63,7 +66,6 @@ class _AddViewState extends State<AddView> {
             ),
             child: MaterialButton(
               onPressed: () async {
-                // Todo : Chamar o banco
                 await addCoin(dropdownValue, _amountController.text);
                 Navigator.of(context).pop();
               },
