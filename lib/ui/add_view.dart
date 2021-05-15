@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AddView extends StatefulWidget {
   AddView({Key key}) : super(key: key);
@@ -18,6 +19,7 @@ class _AddViewState extends State<AddView> {
   Widget build(BuildContext context) {
     return Material(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           DropdownButton(
             value: dropdownValue,
@@ -44,6 +46,11 @@ class _AddViewState extends State<AddView> {
                 signed: false,
                 decimal: true,
               ),
+              inputFormatters: [
+                FilteringTextInputFormatter.deny(
+                  RegExp(r'[\s-!$%^&*()_+|~=,]'),
+                )
+              ],
             ),
           ),
           Container(
