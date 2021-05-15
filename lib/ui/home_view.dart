@@ -61,7 +61,7 @@ class _HomeViewState extends State<HomeView> {
         },
         child: Icon(
           Icons.add,
-          color: Colors.blue,
+          color: Colors.white,
         ),
       ),
     );

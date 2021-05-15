@@ -1,3 +1,4 @@
+import 'package:crypto_watch/net/flutterfire.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -63,6 +64,7 @@ class _AddViewState extends State<AddView> {
             child: MaterialButton(
               onPressed: () async {
                 // Todo : Chamar o banco
+                await addCoin(dropdownValue, _amountController.text);
                 Navigator.of(context).pop();
               },
               child: Text("Add"),
