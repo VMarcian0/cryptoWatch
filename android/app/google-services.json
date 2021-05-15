@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "124078391839",
+    "project_id": "crypto-watch-8459a",
+    "storage_bucket": "crypto-watch-8459a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124078391839:android:b235a2d2c4278ba42bcb2a",
+        "android_client_info": {
+          "package_name": "com.example.crypto_watch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124078391839-f4pa0ccvhemtt8i5rhbar4f6dec5mdcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxjXxQ5GSj65wIPyLhY9P89Mo2wPFZzpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124078391839-f4pa0ccvhemtt8i5rhbar4f6dec5mdcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
