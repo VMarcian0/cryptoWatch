@@ -1,3 +1,5 @@
+import 'package:crypto_watch/net/flutterfire.dart';
+import 'package:crypto_watch/ui/home_view.dart';
 import 'package:flutter/material.dart';
 
 class Authentication extends StatefulWidget {
@@ -21,6 +23,7 @@ class _AuthenticationState extends State<Authentication> {
           color: Colors.blueGrey,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextFormField(
               controller: _emailField,
@@ -47,6 +50,7 @@ class _AuthenticationState extends State<Authentication> {
                     color: Colors.white,
                   )),
             ),
+            // Register Button
             Container(
               width: MediaQuery.of(context).size.width / 1.4,
               height: 45,
@@ -55,10 +59,22 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  bool shouldNavigate =
+                      await register(_emailField.text, _passwordField.text);
+                  if (shouldNavigate) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
+                  }
+                },
                 child: Text("Register"),
               ),
             ),
+            // Login Button
             Container(
               width: MediaQuery.of(context).size.width / 1.4,
               height: 45,
@@ -67,7 +83,18 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  bool shouldNavigate =
+                      await signIn(_emailField.text, _passwordField.text);
+                  if (shouldNavigate) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
+                  }
+                },
                 child: Text("Login"),
               ),
             ),
