@@ -72,6 +72,20 @@ class _AddViewState extends State<AddView> {
               child: Text("Add"),
             ),
           ),
+          Container(
+            width: MediaQuery.of(context).size.width / 1.4,
+            height: 45,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: Colors.red,
+            ),
+            child: MaterialButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Cancel"),
+            ),
+          ),
         ],
       ),
     );

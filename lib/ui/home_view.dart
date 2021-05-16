@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto_watch/net/api_methods.dart';
+import 'package:crypto_watch/net/flutterfire.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -44,6 +45,19 @@ class _HomeViewState extends State<HomeView> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Crypto Watch"),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () async {
+            var leaving = await logout();
+            if (leaving) {
+              Navigator.of(context).pop();
+            }
+          },
+        ),
+      ),
       body: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -85,7 +99,13 @@ class _HomeViewState extends State<HomeView> {
                               width: 3.5,
                             ),
                             Text(
-                              "Coin: ${document.id}",
+                              "${document.id}",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              "Ammount: ${document.data()['Amount']}",
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -101,8 +121,8 @@ class _HomeViewState extends State<HomeView> {
                                 Icons.close,
                                 color: Colors.red,
                               ),
-                              onPressed: () {
-                                print('test');
+                              onPressed: () async {
+                                await removeCoin(document.id);
                               },
                             ),
                           ],
